@@ -46,7 +46,11 @@ const bmiData=[{
     status:'重度肥胖'
 } 
 ];
+//initial
 updateList();
+
+
+
 function AddBMI() {
     w = document.getElementById('txtWeight').value;
     h = document.getElementById('txtHeight').value;
@@ -69,7 +73,7 @@ function AddBMI() {
     console.log(pushData);
     data.push(pushData);
     localStorage.setItem("BMI", JSON.stringify(data));    
-    updateData();
+    updateView();
 }
 
 function getColorIndex()
@@ -108,7 +112,7 @@ function getColorIndex()
     }
    return colorIndex;
 }
-function updateData() {
+function updateView() {
     var divResult = document.querySelectorAll('.div-result');
     var btnResult = document.querySelector('.btn-result');
     var imgLoop = document.querySelector('.img-loop');
