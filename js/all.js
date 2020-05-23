@@ -140,7 +140,7 @@ function updateList()
         tableHtml += '<table class="table mx-auto bg-white mb-3" >';
         tableHtml += '<tr>';
         tableHtml += '<td class="' + bgColor + ' text-nowrap px-0" width="7px">&nbsp;</td>';
-        tableHtml += '<td class="align-middle text-nowrap py-4 font-20" width="90px">' + status + '</td>';
+        tableHtml += '<td class="align-middle text-nowrap py-4 font-20" width="110px">' + status + '</td>';
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">BMI <span class="font-20">' + data[i].bmi + '</span></td>';
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">weight <span class="font-20">' + data[i].weight + 'KG</span></td>';
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">height <span class="font-20">' + data[i].height + 'cm</span></td>';
