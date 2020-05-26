@@ -7,8 +7,10 @@ var bgColorClass = '';
 var textColorClass = '';
 var borderColorClass = '';
 var button = document.querySelector('.button');
+var divBmilist = document.querySelector('.bmi-tables');
 
-button.addEventListener('click', AddBMI); 
+
+
 const bmiData=[{
     bgColor: 'bg-blue',
     color: 'text-blue',
@@ -48,8 +50,8 @@ const bmiData=[{
 ];
 //initial
 updateList();
-
-
+button.addEventListener('click', AddBMI); 
+divBmilist.addEventListener('click',RemoveBMI)
 
 function AddBMI() {
     w = document.getElementById('txtWeight').value;
@@ -148,11 +150,20 @@ function updateList()
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">BMI <span class="font-20">' + data[i].bmi + '</span></td>';
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">weight <span class="font-20">' + data[i].weight + 'KG</span></td>';
         tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">height <span class="font-20">' + data[i].height + 'cm</span></td>';
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="107px">' + data[i].date + '</span></td >';
+        tableHtml += '<td class="align-middle text-nowrap font-12" width="107px">' + data[i].date + '</span></td >';        
+        tableHtml += '<td class="align-middle text-nowrap font-12" width="25px"> <i data-index="' + i + '"  class="fas fa-trash-alt btn-delete"></i></td >';
         tableHtml += ' </tr >';
         tableHtml += ' </table >';
     }
     bmiTables.innerHTML = tableHtml;
+}
+function RemoveBMI(e) {
+    var nodeName = e.target.nodeName;
+    if (nodeName !== 'I') { return }
+    var index = e.target.dataset.index;
+    data.splice(index, 1);
+    localStorage.setItem("BMI", JSON.stringify(data));
+    updateList();
 }
 function getDate()
 {
