@@ -72,7 +72,7 @@ function AddBMI() {
     pushData.weight = w;
     pushData.height = h;
     pushData.date = getDate();
-    console.log(pushData);
+    //console.log(pushData);
     data.push(pushData);
     localStorage.setItem("BMI", JSON.stringify(data));    
     updateView();
@@ -143,17 +143,17 @@ function updateList()
         let colorIndex = data[i].colorIndex;
         let bgColor = bmiData[colorIndex].bgColor;
         let status = bmiData[colorIndex].status;
-        tableHtml += '<table class="table mx-auto bg-white mb-3" >';
-        tableHtml += '<tr>';
-        tableHtml += '<td class="' + bgColor + ' text-nowrap px-0" width="7px">&nbsp;</td>';
-        tableHtml += '<td class="align-middle text-nowrap py-4 font-20" width="110px">' + status + '</td>';
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">BMI <span class="font-20">' + data[i].bmi + '</span></td>';
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">weight <span class="font-20">' + data[i].weight + 'KG</span></td>';
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="140px">height <span class="font-20">' + data[i].height + 'cm</span></td>';
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="107px">' + data[i].date + '</span></td >';        
-        tableHtml += '<td class="align-middle text-nowrap font-12" width="25px"> <i data-index="' + i + '"  class="fas fa-trash-alt btn-delete"></i></td >';
-        tableHtml += ' </tr >';
-        tableHtml += ' </table >';
+        tableHtml += `<table class="table mx-auto bg-white mb-3">
+            <tr>
+            <td class="${ bgColor } text-nowrap px-0" width="7px">&nbsp;</td>
+            <td class="align-middle text-nowrap py-4 font-20" width="110px">${status}</td>
+            <td class="align-middle text-nowrap font-12" width="140px">BMI <span class="font-20">${data[i].bmi}</span></td>
+            <td class="align-middle text-nowrap font-12" width="140px">weight <span class="font-20">${data[i].weight}KG</span></td>
+            <td class="align-middle text-nowrap font-12" width="140px">height <span class="font-20">${data[i].height}cm</span></td>
+            <td class="align-middle text-nowrap font-12" width="107px">${data[i].date}</span></td>
+            <td class="align-middle text-nowrap font-12" width="25px"> <i data-index="${ i }" class="fas fa-trash-alt btn-delete"></i></td>
+            </tr>
+            </table>`;
     }
     bmiTables.innerHTML = tableHtml;
 }
